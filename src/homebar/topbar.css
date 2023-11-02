@@ -1,0 +1,18 @@
+.top-bar {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
+}
+  .logo {
+    color: red;
+    font-size: 24px;
+  }
+  
+  .logout {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
