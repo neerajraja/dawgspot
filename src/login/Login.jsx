@@ -6,9 +6,9 @@ function Login() {
         <div id="login-container" className="container">
             <h1 id="login-header">Login</h1>
             <form>
-                <input type="text" placeholder="Username..." className="input-box" />
+                <input id="username" type="text" placeholder="Username..." className="input-box" />
                 <br />
-                <input type="text" placeholder="Password..." className="input-box" />
+                <input id="password" type="password" placeholder="Password..." className="input-box" />
                 <div className="login-buttons">
                     <button className="generic-button" id="signup-button">Sign Up</button>
                     <button className="generic-button" id="login-button">Login</button>
