@@ -8,7 +8,7 @@ function TopBar(props) {
       <div className="custom-link">View All Games</div>
       { props.isAdmin
         ? <div className="custom-link" id="admin-view">View Admin Panel</div> 
-        : <></>
+        : <></> // Optionally render this element based on the value of props.isAdmin 
       }
       <div className="custom-link" id="login-logout">{props.isAdmin ? "Logout" : "Login"}</div>
     </div>
