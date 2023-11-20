@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './SignUp.css';
 
 
@@ -71,7 +72,7 @@ export default function SignUp() {
         <br />
         <div className="bottom-btns">
         <button type="submit" className="pill-btn">Submit</button>
-        <a href="/login" className="pill-btn">Login</a>
+        <Link to="/login" className="pill-btn">Login</Link>
         </div>
       </form>
     </div>

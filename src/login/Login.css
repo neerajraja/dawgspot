@@ -58,3 +58,7 @@
 #login-password-box {
     margin-left: 0px;
 }
+
+#signup-button, #login-button {
+    text-decoration: none;
+}

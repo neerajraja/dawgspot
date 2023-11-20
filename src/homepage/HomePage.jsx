@@ -15,7 +15,7 @@ function HomePage(props) {
             <div id="banner">
                 <div id="background-image"></div>
                 <div id="content">
-                    <p>Welcome to Dawgspot</p>
+                    <p>Welcome to Dawgspot {props.isAdmin ? "(Admin View)" : ""}</p>
                 </div>
             </div>
 
