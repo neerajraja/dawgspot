@@ -36,7 +36,7 @@ function AddItem() {
     }
 
     return(
-        <div className="container">
+        <div className="container" id="additem-container">
             <h1 className="additem-header">Add New Game</h1>
             <form className="additem-form" onSubmit={submitHandler}>
                 <input type="text" id="additem-hometeam" placeholder="Home Team name.." value={homeTeam} onChange={homeTeamChangeHandler}/>
@@ -44,7 +44,7 @@ function AddItem() {
                 <input type="number" id="additem-homescore" placeholder="Home Team score.." value={homeScore} onChange={homeScoreChangeHandler}/>
                 <input type="number" id="additem-awayscore" placeholder="Away Team score.." value={awayScore} onChange={awayScoreChangeHandler}/>
                 <input type="text" id="additem-gameimage" placeholder="URL to game image.." value={gameImage} onChange={gameImageChangeHandler}/>
-                <button className="generic-button" type="submit">Add Item</button>
+                <button className="generic-button" type="submit" id="additem-button">Add Item</button>
             </form>
         </div>
     );

@@ -27,6 +27,10 @@
     display: inline-block;
 }
 
+#additem-button {
+    width: 263px;
+}
+
 .generic-button:hover {
     color: black;
     background-color: white;
