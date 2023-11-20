@@ -15,6 +15,7 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirm] = useState('');
     const [email, setEmail] = useState('');
+    const [profilePic, setProfilePic] = useState('');
 
     const handleSubmit = (e) => {
         //e.preventDefault(); // why do we not need this?
@@ -24,7 +25,7 @@ export default function SignUp() {
             return;
         }
 
-        if (password == '' || confirmPassword == '' || username == '' || email == '' || profilePic == '') {
+        if (password === '' || confirmPassword === '' || username === '' || email === '' || profilePic === '') {
             alert('Please fill out all fields');
             return;
         }
@@ -42,6 +43,7 @@ export default function SignUp() {
         setPassword('');
         setConfirm('');
         setEmail('');
+        setProfilePic('');
     } // handleSubmit
 
   return (
