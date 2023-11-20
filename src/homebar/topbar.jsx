@@ -8,7 +8,7 @@ function TopBar(props) {
       <Link to="/" className="logo">Dawgspot</Link>
       
       { props.isAdmin
-        ? <div className="custom-link" id="admin-view">Add New Game</div> 
+        ? <Link to='/additem' className="custom-link">Add New Game</Link>
         : <></> // Optionally render this element based on the value of props.isAdmin 
       }
       { props.isAdmin
