@@ -38,7 +38,7 @@ export default function SignUp() {
         }
 
         // TODO: send newUser to backend || call event handler from App.jsx
-
+        console.log(newUser);
         setUsername('');
         setPassword('');
         setConfirm('');
