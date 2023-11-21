@@ -1,22 +1,33 @@
-import './App.css';
-import Main from './main'
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-
+import TopBar from './homebar/topbar';
+import HomePage from './homepage/HomePage';
+import SignUp from './signup/SignUp';
+import Login from './login/Login';
+import AddItem from './additem/AddItem';
 
 
 
 function App() {
-  const router = createBrowserRouter([{
-    path: "/",
-    element: <Main/>,
+    const [isAdmin, setIsAdmin] = useState(false);
+    const toggleIsAdmin = prevIsAdmin => setIsAdmin(!prevIsAdmin);
 
-  }
+    return(
+        <Router>
+            <div>
+                <TopBar isAdmin={isAdmin} toggleIsAdmin={toggleIsAdmin}/>
+                <Routes>
+                    <Route exact path='/' element={<HomePage isAdmin={isAdmin} />} />
+                    <Route path='/signup' element={<SignUp />} />
+                    <Route path='/login' element={<Login toggleIsAdmin={toggleIsAdmin} />} />
+                    <Route path='/additem' element={<AddItem />} />
 
-  ])
-  return (
-    <RouterProvider router={router}/>
-  );
+                    <Route path='*' element={<p>404 Page not Found</p>} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

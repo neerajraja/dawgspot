@@ -1,0 +1,43 @@
+#banner {
+    height: 800px;
+}
+
+/* Code adapted from https://stackoverflow.com/questions/20039765/how-to-apply-a-css-filter-to-a-background-image */
+#background-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    background-image: url('https://wallpapercave.com/wp/wp4969093.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 750px;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+/* Code adapted from https://stackoverflow.com/questions/20039765/how-to-apply-a-css-filter-to-a-background-image */
+#content {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    text-align: center;
+    font-size: 36pt;
+    margin-top: 10%;
+
+    background-color: rgba(0, 0, 0, 0.783);
+    
+}
+
+.section-header {
+    text-align: center;
+    text-decoration: underline;
+}
