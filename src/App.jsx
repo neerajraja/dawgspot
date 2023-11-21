@@ -7,7 +7,7 @@ import SignUp from './signup/SignUp';
 import Login from './login/Login';
 import AddItem from './additem/AddItem';
 
-
+import ErrorPage from './ErrorPage/ErrorPage';
 
 function App() {
     const [isAdmin, setIsAdmin] = useState(false);
@@ -23,7 +23,7 @@ function App() {
                     <Route path='/login' element={<Login toggleIsAdmin={toggleIsAdmin} />} />
                     <Route path='/additem' element={<AddItem />} />
 
-                    <Route path='*' element={<p>404 Page not Found</p>} />
+                    <Route path='*' element={<ErrorPage />} />
                 </Routes>
             </div>
         </Router>
