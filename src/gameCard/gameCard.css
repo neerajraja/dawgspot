@@ -1,0 +1,87 @@
+.card-container {
+  display: block; 
+  margin: 5px; 
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; 
+  align-items: center; 
+}
+
+
+.divider {
+  border-left: 2px solid #fff; 
+  margin: 0 10px; 
+  height: 70%; 
+}
+
+.half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.quarter {
+  flex: 0.5;
+  padding: 10px;
+}
+
+.content {
+  text-align: center; 
+  margin: 10px 0; 
+}
+.team-names {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold; 
+  font-size: larger;
+}
+
+.rankings {
+  margin-right: 10px; 
+  font-size: small;
+}
+
+
+.betting-odds {
+  font-size: 16px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.comments-section {
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 0 0 10px 10px; 
+  overflow: hidden;
+  transition: max-height 0.5s; 
+  max-height: 0;
+}
+
+
+.show-comments {
+  max-height: 1000px; 
+}
+
+.bold {
+  font-weight: bold;
+}
