@@ -16,23 +16,30 @@ function GameCard(props){
         <div className="card">
             <div className="half">
                 <div className="content team-names">
-                    <div className="rankings">1</div>
-                    <div>Georgia</div>
+                    <div className="rankings">{props.homeRank}</div>
+                    <div>{props.homeTeam}</div>
                 </div>
                 <div className="content team-names">
-                    <div className="rankings">17</div>
-                    <div>Vanderbuilt</div>
+                    <div className="rankings">{props.awayRank}</div>
+                    <div>{props.awayTeam}</div>
                 </div>
             </div>
             <div className="divider"></div>
             <div className="half">
                 <div className="content betting-odds">UGA odds</div>
-                <div className="content bold betting-odds">2.5</div>
+                <div className="content bold betting-odds">{props.homeOdds}</div>
             </div>
             <div className="divider"></div>
             <div className="half">
                 <div className="button-container">
-                    <button className="button" onClick={toggleComments}>See Comments</button>
+                    <button className="gc-button" onClick={toggleComments}>See Comments</button>
+                    { props.isAdmin
+                      ? <>
+                          <button className="gc-button">Edit Game</button>
+                          <button className="gc-button">Delete Game</button>
+                        </>
+                      : <></>
+                    }
                 </div>
             </div>
         </div>

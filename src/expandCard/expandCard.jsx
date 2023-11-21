@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useRef } from "react";
 import "./expandCard.css"
+
 import GameCard from "../gameCard/gameCard";
 
-function ExpandCard() {
+function ExpandCard(props) {
     const [open,setOpen] = useState(false);
     const lowerRef = useRef(null);
     const containerRef = useRef(null);
@@ -26,11 +27,20 @@ function ExpandCard() {
     };
 
         return (
+          
           <div
-            className={"container " } ref={lowerRef}
+            className={"ex-container " } ref={lowerRef}
           >
             <div className="upper">
-                <GameCard clicker={handleClick}/>
+                <GameCard
+                  clicker={handleClick}
+                  homeTeam={props.hometeam}
+                  awayTeam={props.awayteam}
+                  homeRank={props.homerank}
+                  awayRank={props.awayrank}
+                  homeOdds={props.homeodds}
+                  isAdmin={props.isAdmin}
+                />
             </div>
             <div className="lower">
               <p>John Doe</p>
@@ -43,8 +53,8 @@ function ExpandCard() {
               </h3>
     
               <h4>Add a comment</h4>
-            <input type="text" />
-            <button type="submit" className="button">Submit</button>
+            <input type="text" className="ex-text"/>
+            <button type="submit" className="ex-button">Submit</button>
 
 
             </div>
@@ -52,6 +62,7 @@ function ExpandCard() {
 
             
           </div>
+
         );
 }
 

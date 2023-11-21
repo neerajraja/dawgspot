@@ -1,12 +1,14 @@
 import React from 'react';
-import DummyItemList from '../dummyitemlist/DummyItemList';
+import CardList from '../cardlist/CardList';
 import './HomePage.css';
+
+
 
 // Dummy info for each game/item component
 const items = [
-    { hometeam: "Bengals", awayteam: "Ravens", homescore: "20", awayscore: "34"},
-    { hometeam: "Jets", awayteam: "Raiders", homescore: "12", awayscore: "16"},
-    { hometeam: "Giants", awayteam: "Cowboys", homescore: "17", awayscore: "49"},
+    { hometeam: "Georgia", awayteam: "Florida", homerank: "20", awayrank: "34", homeodds: "24.6"},
+    { hometeam: "Georgia", awayteam: "Alabama", homerank: "12", awayrank: "16", homeodds: "12.1"},
+    { hometeam: "Georgia", awayteam: "South Carolina", homerank: "17", awayrank: "49", homeodds: "5.3"},
 ];
 
 function HomePage(props) {
@@ -20,7 +22,7 @@ function HomePage(props) {
             </div>
 
             <h1 className="section-header">Live Sports Games</h1>
-            <DummyItemList items={items} isAdmin={props.isAdmin}/>
+            <CardList items={items} isAdmin={props.isAdmin}/>
         </div>
     )
 }
