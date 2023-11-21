@@ -31,12 +31,17 @@ function GameCard(props){
             </div>
             <div className="divider"></div>
             <div className="half">
+                <div className="gameimage-container">
+                    <img className="gameimage" src={props.gameImage} alt="A college football logo."></img>
+                </div>
+            </div>
+            <div className="divider"></div>
+            <div className="half">
                 <div className="button-container">
                     <button className="gc-button" onClick={toggleComments}>See Comments</button>
                     { props.isAdmin
                       ? <>
-                          <button className="gc-button">Edit Game</button>
-                          <button className="gc-button">Delete Game</button>
+                          <button className="gc-button">Manage Game</button>
                         </>
                       : <></>
                     }

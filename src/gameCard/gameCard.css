@@ -86,3 +86,7 @@
 .bold {
   font-weight: bold;
 }
+
+.gameimage {
+  width: 100px;
+}

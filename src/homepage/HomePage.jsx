@@ -6,9 +6,9 @@ import './HomePage.css';
 
 // Dummy info for each game/item component
 const items = [
-    { hometeam: "Georgia", awayteam: "Florida", homerank: "20", awayrank: "34", homeodds: "24.6"},
-    { hometeam: "Georgia", awayteam: "Alabama", homerank: "12", awayrank: "16", homeodds: "12.1"},
-    { hometeam: "Georgia", awayteam: "South Carolina", homerank: "17", awayrank: "49", homeodds: "5.3"},
+    { hometeam: "Georgia", awayteam: "Florida", homerank: "20", awayrank: "34", homeodds: "24.6", gameimage: "https://loodibee.com/wp-content/uploads/Florida_Gators_logo.png"},
+    { hometeam: "Georgia", awayteam: "Alabama", homerank: "12", awayrank: "16", homeodds: "12.1", gameimage: "https://loodibee.com/wp-content/uploads/Georgia_Bulldogs_logo.png"},
+    { hometeam: "Georgia", awayteam: "S. Carolina", homerank: "17", awayrank: "49", homeodds: "5.3", gameimage: "https://loodibee.com/wp-content/uploads/South_Carolina_Gamecocks_logo.png"},
 ];
 
 function HomePage(props) {
