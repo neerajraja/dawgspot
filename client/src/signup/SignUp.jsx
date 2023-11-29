@@ -1,8 +1,12 @@
 
-import { useState } from 'react';
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import './SignUp.css';
+import { useNavigate } from 'react-router-dom';
+// imports for auth & backend
+import axios from 'axios';
+import UserContext from "../../../server/context/UserContext.js";
+
 
 
 /**
@@ -17,9 +21,13 @@ export default function SignUp() {
     const [confirmPassword, setConfirm] = useState('');
     const [email, setEmail] = useState('');
     const [profilePic, setProfilePic] = useState('');
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+    const {setUserData} = useContext(UserContext);
 
     const handleSubmit = (e) => {
-        //e.preventDefault(); // why do we not need this?
+        e.preventDefault(); // why do we not need this?
 
         if (password !== confirmPassword) {
             alert('Passwords do not match');
