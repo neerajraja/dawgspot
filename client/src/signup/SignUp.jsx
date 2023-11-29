@@ -35,7 +35,7 @@ export default function SignUp() {
      * @returns {void} - returns nothing
      * @description - Creates a new user and logs them in
     */
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => { // double check to make sure cP = P
         e.preventDefault(); // why do we not need this?
         setLoading(true);
         try {
@@ -73,20 +73,20 @@ export default function SignUp() {
         <h1>Sign Up</h1>
         <hr className="hr"/>
         
-        <input className="username-entry" placeholder='Username' type="text" id="username" name="username" required />
+        <input className="username-entry" placeholder='Username' type="text" id="username" name="username" required onChange={(e) => setUsername(e.target.value)}/>
 
         
-        <input placeholder='Password' type="password" id="password" name="password" required />
+        <input placeholder='Password' type="password" id="password" name="password" required onChange={(e) => setPassword(e.target.value)}/>
 
         
-        <input placeholder='Confirm password' type="password" id="confirmPassword" name="confirmPassword" required />
+        <input placeholder='Confirm password' type="password" id="confirmPassword" name="confirmPassword" required onChange={(e) => setConfirm(e.target.value)} />
 
-        <input placeholder="Profile Pic"  type="text" />
+        <input placeholder="Profile Pic"  type="text" onChange={(e) => setProfilePic(e.target.value)}/>
         
-        <input placeholder="Email" type="email" id="email" name="email" required />
+        <input placeholder="Email" type="email" id="email" name="email" required onChange={(e) => setEmail(e.target.value)}/>
         <br />
         <div className="bottom-btns">
-        <button type="submit" className="pill-btn">Submit</button>
+        <button type="submit" className="pill-btn" disabled={loading}>Submit</button>
         <Link to="/login" className="pill-btn">Login</Link>
         </div>
       </form>
