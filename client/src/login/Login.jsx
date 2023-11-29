@@ -26,7 +26,7 @@ function Login(props) {
     */
     function loginHandler(e) {
         e.preventDefault();
-        // props.toggleIsAdmin(); -- is this needed?
+        props.toggleIsAdmin(); // -- is this needed?
         setLoading(true);
         try {
             const loginUser = { email, password };
