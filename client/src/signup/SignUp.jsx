@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 // imports for auth & backend
 import axios from 'axios';
 import UserContext from "../../../server/context/UserContext.js";
+import { set } from 'mongoose';
 
 
 
@@ -26,33 +27,39 @@ export default function SignUp() {
     const navigate = useNavigate();
     const {setUserData} = useContext(UserContext);
 
-    const handleSubmit = (e) => {
+    /**
+     * @author Cannon M. Hutcheson
+     * @version 0.0.1
+     * @function handleSubmit - a function that handles the submission of a form
+     * @param {Event} e - the event that triggered the function
+     * @returns {void} - returns nothing
+     * @description - Creates a new user and logs them in
+    */
+    const handleSubmit = async (e) => {
         e.preventDefault(); // why do we not need this?
-
-        if (password !== confirmPassword) {
-            alert('Passwords do not match');
-            return;
-        }
-
-        if (password === '' || confirmPassword === '' || username === '' || email === '' || profilePic === '') {
-            alert('Please fill out all fields');
-            return;
-        }
-
-        const newUser = {
-            username: username,
-            password: password,
+        setLoading(true);
+        try {
+          newUser = {
             email: email,
-            profilePic: profilePic
+            password: password,
+            username: username,
+            avatar: profilePic,
+          }
+          await axios.post('http://localhost:8082/api/users/signup', newUser);
+          const loginRes = await axios.post('http://localhost:8082/api/users/login', {
+            email,
+            password
+          });
+          setUserData({
+            token: loginRes.data.token,
+            user: loginRes.data.user
+          });
+          localStorage.setItem("auth-token", loginRes.data.token);
+          setLoading(false);
+          navigate('/');
+        } catch (err) {
+          err.response.data.msg && setError(err.response.data.msg);
         }
-
-        // TODO: send newUser to backend || call event handler from App.jsx
-        console.log(newUser);
-        setUsername('');
-        setPassword('');
-        setConfirm('');
-        setEmail('');
-        setProfilePic('');
     } // handleSubmit
 
   return (
