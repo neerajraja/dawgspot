@@ -9,6 +9,7 @@ import { set } from "mongoose";
 
 function Login(props) {
 
+    cinst [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState();
@@ -36,9 +37,10 @@ function Login(props) {
                 user: loginRes.data.user
             });
             localStorage.setItem("auth-token", loginRes.data.token);
+            setLoading(false);
             navigate("/");
-            // setLoading(false); -- this may need to be in the catch block
         } catch(err) { 
+            setLoading(false);
              err.response.data.msg && setError(err.response.data.msg);
         } // try-catch
     } // loginHandler
@@ -48,9 +50,9 @@ function Login(props) {
         <div id="login-container" className="container">
             <h1 id="login-header">Login</h1>
             <form onSubmit={loginHandler}>
-                <input id="login-username-box" type="text" placeholder="Username..." className="input-box" />
+                <input id="login-username-box" type="text" placeholder="Username..." className="input-box" onChange={e => setUsername(e.target.value)}/>
                 <br />
-                <input id="login-password-box" type="password" placeholder="Password..." className="input-box" />
+                <input id="login-password-box" type="password" placeholder="Password..." className="input-box" onChange={e => setPassword(e.target.value)}/>
                 <div className="login-buttons">
                     <Link to="/signup" className="generic-button" id="signup-button">Sign Up</Link>
                     <Link to="/" className="generic-button" id="login-button" onClick={loginHandler}>Login</Link>

@@ -8,6 +8,7 @@ import Login from './login/Login';
 import AddItem from './additem/AddItem';
 
 import ErrorPage from './ErrorPage/ErrorPage';
+import UserContext from '../../server/context/UserContext';
 
 function App() {
     const [isAdmin, setIsAdmin] = useState(false);
@@ -36,6 +37,7 @@ function App() {
     const toggleIsAdmin = prevIsAdmin => setIsAdmin(!prevIsAdmin);
 
     return(
+        <UserContext.Provider value={{ userData, setUserData }}>
         <Router>
             <div>
                 <TopBar isAdmin={isAdmin} toggleIsAdmin={toggleIsAdmin}/>
@@ -49,6 +51,7 @@ function App() {
                 </Routes>
             </div>
         </Router>
+        </UserContext.Provider>
     );
 }
 

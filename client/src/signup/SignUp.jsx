@@ -36,7 +36,7 @@ export default function SignUp() {
      * @description - Creates a new user and logs them in
     */
     const handleSubmit = async (e) => { // double check to make sure cP = P
-        e.preventDefault(); // why do we not need this?
+        e.preventDefault();
         setLoading(true);
         try {
           newUser = {
