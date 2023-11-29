@@ -18,7 +18,11 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         trim: true,
     },
-    // add the avatar field
+    avatar: {
+        type: String,
+        required: false,
+        trim: true,
+    }
 });
 
 module.exports = mongoose.model('user', userSchema);
