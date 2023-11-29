@@ -70,3 +70,39 @@ userRouter.post('/login', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+/**
+ * Check if token is valid
+*/
+userRouter.post('/tokenIsValid', async (req, res) => {
+    try {
+        const token = req.header('x-auth-token');
+        if (!token) {
+            return res.json(false);
+        }
+        const verified = jwt.verify(token, "passwordKey");
+        if (!verified) {
+            return res.json(false);
+        }
+        const user = await User.findById(verified.id);
+        if (!user) {
+            return res.json(false);
+        }
+        return res.json(true);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+/**
+ * @route GET api/users/
+ * @desc Get user data
+*/
+userRouter.get('/', auth, async (req, res) => {
+    const user = await User.findById(req.user);
+    res.json({
+        username: user.username,
+        id: user._id,
+    });
+});
+

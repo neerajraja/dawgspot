@@ -1,0 +1,5 @@
+
+1. Add the avatar field to the user model.
+2. Add avatar to the users.js routing
+3. Be sure to add functionality within login and signup components to make it like the example.
+4. Double check the loginHangler in the Login.jsx component to make sure everything is written correctly and working properly.

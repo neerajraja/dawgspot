@@ -1,8 +1,14 @@
 const express = require('express');
 const app = express();
-const port = 8089;
+const port = 8082;
 const mongoose = require('mongoose');
 const cors = require('cors');
+
+// authorization dependencies
+const users = require('./routes/api/users');
+import axios from 'axios'; // is this needed here?
+app.use('/api/users', users);
+
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ extended: false }));
