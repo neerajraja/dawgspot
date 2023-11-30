@@ -23,5 +23,8 @@ mongoose.connect(conn_str)
     console.log(`Error starting backend: ${error}`);
 });
 
+const users = require('./routes/api/users');
+app.use('/api/users', users);
+
 // Server Routes
 app.get('/', (req, res) => res.send('Hello, world!'));
