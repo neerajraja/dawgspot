@@ -34,12 +34,12 @@ function ExpandCard(props) {
             <div className="upper">
                 <GameCard
                   clicker={handleClick}
+                  id={props.id}
                   homeTeam={props.hometeam}
                   awayTeam={props.awayteam}
                   homeRank={props.homerank}
                   awayRank={props.awayrank}
                   homeOdds={props.homeodds}
-                  isAdmin={props.isAdmin}
                   gameImage={props.gameImage}
                 />
             </div>

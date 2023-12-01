@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ErrorPage.css';
 
-function ErrorPage() {
+function ErrorPage({errorText}) {
     return(
         <div className="errorpagecontainer">
-            <p className="errorpagetext">404 - Page not found!</p>
+            <p className="errorpagetext">{errorText}</p>
+            <Link to="/" id="return-button">Return Home</Link>
         </div>
     )
 }
