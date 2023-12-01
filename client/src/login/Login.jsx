@@ -6,7 +6,7 @@ import UserContext from "../context/UserContext";
 
 import "./Login.css";
 
-function Login(props) {
+function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -23,20 +23,23 @@ function Login(props) {
      * @version 0.0.1
      * Last edited 11/30/2023 by Cannon M. Hutcheson & Nathan Christian
     */
-    function loginHandler(e) {
+    async function loginHandler(e) {
         e.preventDefault();
         // props.toggleIsAdmin(); -- is this needed?
         setLoading(true);
         try {
             const loginUser = { email, password };
-            const loginRes = axios.post("http://localhost:8089/api/users/login", loginUser);
+            const loginRes = await axios.post("http://localhost:8089/api/users/login", loginUser);
+
             setUserData({
                 token: loginRes.data.token,
                 user: loginRes.data.user
             });
+
             localStorage.setItem("auth-token", loginRes.data.token);
+            setLoading(false);
             navigate("/");
-            // setLoading(false); -- this may need to be in the catch block
+            window.location.reload();
         } catch(err) { 
             setLoading(false);
             err && setError(err);
@@ -52,7 +55,7 @@ function Login(props) {
                 <input id="login-password-box" type="password" placeholder="Password..." className="input-box" required onChange={e => setPassword(e.target.value)}/>
                 <div className="login-buttons">
                     <Link to="/signup" className="generic-button" id="signup-button">Sign Up</Link>
-                    <Link to="/" className="generic-button" id="login-button" onClick={loginHandler}>Login</Link>
+                    <button className="generic-button" id="login-button" onClick={loginHandler}>Login</button>
                 </div>
             </form>
         </div>
