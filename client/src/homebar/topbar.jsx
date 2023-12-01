@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './topbar.css';
 
-function TopBar(props) {
+function TopBar() {
+  const [token, setToken] = useState();
+
+  useEffect(() => {
+    setToken(localStorage.getItem('auth-token'))
+  }, []);
+
   return (
     <div className="top-bar">
       <Link to="/" className="logo">Dawgspot</Link>
-      
-      { props.isAdmin
+      { token
         ? <Link to='/additem' className="custom-link">Add New Game</Link>
-        : <></> // Optionally render this element based on the value of props.isAdmin 
+        : <></>
       }
-      { props.isAdmin
-        ? <Link to='/' className="custom-link" onClick={props.toggleIsAdmin}>Logout</Link>
+      { token
+        ? <Link to='/' className="custom-link">Logout</Link>
         : <>
             <Link to='/signup' className="custom-link">Sign Up</Link>
             <Link to='/login' className="custom-link">Login</Link>            

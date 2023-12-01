@@ -29,7 +29,7 @@ function Login(props) {
         setLoading(true);
         try {
             const loginUser = { email, password };
-            const loginRes = axios.post("http://localhost:8082/api/users/login", loginUser);
+            const loginRes = axios.post("http://localhost:8089/api/users/login", loginUser);
             setUserData({
                 token: loginRes.data.token,
                 user: loginRes.data.user
@@ -39,7 +39,7 @@ function Login(props) {
             // setLoading(false); -- this may need to be in the catch block
         } catch(err) { 
             setLoading(false);
-            err.response.data.msg && setError(err.response.data.msg);
+            err && setError(err);
         } // try-catch
     } // loginHandler
 

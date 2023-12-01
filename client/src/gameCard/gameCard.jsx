@@ -1,14 +1,19 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './gameCard.css';
 
 function GameCard(props){
+  const [token, setToken] = useState();
+
   const [showComments, setShowComments] = useState(false);
 
   const toggleComments = () => {
       setShowComments(!showComments);
       props.clicker();
   }
+
+  useEffect(() => {
+    setToken(localStorage.getItem('auth-token'));
+  }, []);
 
 
   return (
@@ -39,7 +44,7 @@ function GameCard(props){
             <div className="half">
                 <div className="button-container">
                     <button className="gc-button" onClick={toggleComments}>See Comments</button>
-                    { props.isAdmin
+                    { token
                       ? <>
                           <button className="gc-button">Manage Game</button>
                         </>

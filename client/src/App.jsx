@@ -13,8 +13,6 @@ import AddItem from './additem/AddItem';
 import ErrorPage from './ErrorPage/ErrorPage';
 
 function App() {
-    const [isAdmin, setIsAdmin] = useState(false);
-    const toggleIsAdmin = prevIsAdmin => setIsAdmin(!prevIsAdmin);
 
     const [userData, setUserData] = useState({
         token: undefined,
@@ -53,11 +51,11 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
         <Router>
             <div>
-                <TopBar isAdmin={isAdmin} toggleIsAdmin={toggleIsAdmin}/>
+                <TopBar/>
                 <Routes>
-                    <Route exact path='/' element={<HomePage isAdmin={isAdmin} />} />
+                    <Route exact path='/' element={<HomePage />} />
                     <Route path='/signup' element={<SignUp />} />
-                    <Route path='/login' element={<Login toggleIsAdmin={toggleIsAdmin} />} />
+                    <Route path='/login' element={<Login />} />
                     <Route path='/additem' element={<AddItem />} />
 
                     <Route path='*' element={<ErrorPage />} />

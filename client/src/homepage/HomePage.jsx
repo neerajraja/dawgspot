@@ -11,18 +11,18 @@ const items = [
     { hometeam: "Georgia", awayteam: "S. Carolina", homerank: "17", awayrank: "49", homeodds: "5.3", gameimage: "https://loodibee.com/wp-content/uploads/South_Carolina_Gamecocks_logo.png"},
 ];
 
-function HomePage(props) {
+function HomePage() {
     return (
         <div>
             <div id="banner">
                 <div id="background-image"></div>
                 <div id="content">
-                    <p>Welcome to Dawgspot {props.isAdmin ? "(Admin View)" : ""}</p>
+                    <p>Welcome to Dawgspot</p>
                 </div>
             </div>
 
             <h1 className="section-header">Live Sports Games</h1>
-            <CardList items={items} isAdmin={props.isAdmin}/>
+            <CardList items={items}/>
         </div>
     )
 }

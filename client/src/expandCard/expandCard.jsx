@@ -39,7 +39,6 @@ function ExpandCard(props) {
                   homeRank={props.homerank}
                   awayRank={props.awayrank}
                   homeOdds={props.homeodds}
-                  isAdmin={props.isAdmin}
                   gameImage={props.gameImage}
                 />
             </div>

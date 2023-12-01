@@ -15,7 +15,6 @@ function CardList(props) {
                         homerank={item.homerank}
                         awayrank={item.awayrank}
                         homeodds={item.homeodds}
-                        isAdmin={props.isAdmin}
                         gameImage={item.gameimage}
                     />
                 )
