@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddItem.css';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 function AddItem() {
+    const [token, setToken] = useState();
+    useEffect(() => {
+        setToken(localStorage.getItem('auth-token'))
+    }, []);
+
     const [homeTeam, setHomeTeam] = useState('');
     const [awayTeam, setAwayTeam] = useState('');
     const [homeRank, setHomeRank] = useState('');
@@ -38,21 +44,24 @@ function AddItem() {
         setHomeOdds('');
         setGameImage('');
     }
-
-    return(
-        <div className="container" id="additem-container">
-            <h1 className="additem-header">Add New Game</h1>
-            <form className="additem-form" onSubmit={submitHandler}>
-                <input type="text" id="additem-hometeam" placeholder="Home Team name.." value={homeTeam} onChange={homeTeamChangeHandler}/>
-                <input type="text" id="additem-awayteam" placeholder="Away Team name.." value={awayTeam} onChange={awayTeamChangeHandler}/>
-                <input type="text" id="additem-homerank" placeholder="Home Team rank.." value={homeRank} onChange={homeRankChangeHandler}/>
-                <input type="text" id="additem-awayrank" placeholder="Away Team rank.." value={awayRank} onChange={awayRankChangeHandler}/>
-                <input type="text" id="additem-homeodds" placeholder="Home Team odds.." value={homeOdds} onChange={homeOddsChangeHandler}/>
-                <input type="text" id="additem-gameimage" placeholder="URL to game image.." value={gameImage} onChange={gameImageChangeHandler}/>
-                <button className="generic-button" type="submit" id="additem-button">Add Item</button>
-            </form>
-        </div>
-    );
+    if (token) {
+        return(
+            <div className="container" id="additem-container">
+                <h1 className="additem-header">Add New Game</h1>
+                <form className="additem-form" onSubmit={submitHandler}>
+                    <input type="text" id="additem-hometeam" placeholder="Home Team name.." value={homeTeam} onChange={homeTeamChangeHandler}/>
+                    <input type="text" id="additem-awayteam" placeholder="Away Team name.." value={awayTeam} onChange={awayTeamChangeHandler}/>
+                    <input type="text" id="additem-homerank" placeholder="Home Team rank.." value={homeRank} onChange={homeRankChangeHandler}/>
+                    <input type="text" id="additem-awayrank" placeholder="Away Team rank.." value={awayRank} onChange={awayRankChangeHandler}/>
+                    <input type="text" id="additem-homeodds" placeholder="Home Team odds.." value={homeOdds} onChange={homeOddsChangeHandler}/>
+                    <input type="text" id="additem-gameimage" placeholder="URL to game image.." value={gameImage} onChange={gameImageChangeHandler}/>
+                    <button className="generic-button" type="submit" id="additem-button">Add Item</button>
+                </form>
+            </div>
+        );
+    } else {
+        return(<ErrorPage errorText="You are not authorized to view this page."/>)
+    }
 }
 
 export default AddItem;

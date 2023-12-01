@@ -57,8 +57,7 @@ function App() {
                     <Route path='/signup' element={<SignUp />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/additem' element={<AddItem />} />
-
-                    <Route path='*' element={<ErrorPage />} />
+                    <Route path='*' element={<ErrorPage errorText="404 - Page Not Found!"/>} />
                 </Routes>
             </div>
         </Router>

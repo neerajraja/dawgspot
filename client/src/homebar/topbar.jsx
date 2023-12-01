@@ -2,12 +2,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './topbar.css';
 
-import UserContext from '../context/UserContext';
-
 function TopBar() {
   const [token, setToken] = useState();
   const navigate = useNavigate();
-  const userContext = useContext(UserContext);
 
   useEffect(() => {
     setToken(localStorage.getItem('auth-token'))
