@@ -1,18 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './topbar.css';
 
-function TopBar(props) {
+function TopBar() {
+  const [token, setToken] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setToken(localStorage.getItem('auth-token'))
+  }, []);
+
+  function logout() {
+    if (token) {
+      localStorage.removeItem('auth-token');
+      setToken(null);
+      navigate('/');
+      window.location.reload();
+    }
+  }
+
   return (
     <div className="top-bar">
       <Link to="/" className="logo">Dawgspot</Link>
-      
-      { props.isAdmin
+      { token
         ? <Link to='/additem' className="custom-link">Add New Game</Link>
-        : <></> // Optionally render this element based on the value of props.isAdmin 
+        : <></>
       }
-      { props.isAdmin
-        ? <Link to='/' className="custom-link" onClick={props.toggleIsAdmin}>Logout</Link>
+      { token
+        ? <p className="custom-link" onClick={logout}>Logout</p>
         : <>
             <Link to='/signup' className="custom-link">Sign Up</Link>
             <Link to='/login' className="custom-link">Login</Link>            

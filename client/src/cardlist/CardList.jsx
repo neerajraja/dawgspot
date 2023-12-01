@@ -9,14 +9,13 @@ function CardList(props) {
             props.items.map((item, idx) => {
                 return(
                     <ExpandCard
-                        gamenumber={idx + 1}
-                        hometeam={item.hometeam}
-                        awayteam={item.awayteam}
-                        homerank={item.homerank}
-                        awayrank={item.awayrank}
-                        homeodds={item.homeodds}
-                        isAdmin={props.isAdmin}
-                        gameImage={item.gameimage}
+                        id={item._id}
+                        hometeam={item.homeTeam}
+                        awayteam={item.awayTeam}
+                        homerank={item.homeRank}
+                        awayrank={item.awayRank}
+                        homeodds={item.homeOdds}
+                        gameImage={item.gameImage}
                     />
                 )
             })         
